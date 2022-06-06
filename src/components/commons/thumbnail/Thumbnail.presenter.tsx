@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import { Movie } from "../../types/typing";
 import { ThumbnialProps } from "./Thumbnail.container";
 
 const ThumbnailUI = ({ movie }: ThumbnialProps) => {

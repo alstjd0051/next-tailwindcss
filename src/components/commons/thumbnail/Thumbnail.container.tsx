@@ -1,5 +1,5 @@
 import React from "react";
-import { Movie } from "../../types/typing";
+import { Movie } from "../../../commons/types/typing";
 import ThumbnailUI from "./Thumbnail.presenter";
 
 export interface ThumbnialProps {

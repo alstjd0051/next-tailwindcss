@@ -1,4 +1,4 @@
-import { Movie } from "../../types/typing";
+import { Movie } from "../../../commons/types/typing";
 import RowUI from "./Row.presenter";
 
 export interface Props {

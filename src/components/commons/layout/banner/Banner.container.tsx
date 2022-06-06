@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Movie } from "../../types/typing";
+import { Movie } from "../../../../commons/types/typing";
 import BannerUI from "./Banner.presenter";
 
 interface Props {

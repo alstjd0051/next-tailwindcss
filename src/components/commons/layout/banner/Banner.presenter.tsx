@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import { baseUrl } from "../../types/constants/movie";
-import { Movie } from "../../types/typing";
 import { FaPlay } from "react-icons/fa";
 import { InformationCircleIcon } from "@heroicons/react/solid";
+import { Movie } from "../../../../commons/types/typing";
+import { baseUrl } from "../../../../commons/types/constants/movie";
 
 const BannerUI = ({ movie }: string | Movie | null | any) => {
   return (
