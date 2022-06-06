@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Header from "../src/components/header/Header.container";
-import Banner from "../src/components/banner/Banner.container";
+import Banner from "../src/components/commons/layout/banner/Banner.container";
 import requests from "../utils/request";
-import { Movie } from "../src/types/typing";
-import Row from "../src/components/rows/Row.conatiner";
+import Row from "../src/components/commons/rows/Row.conatiner";
+import { Movie } from "../src/commons/types/typing";
+import Header from "../src/components/commons/layout/header/Header.container";
 
 interface Props {
   netflixOriginals: Movie[];
