@@ -1,8 +1,27 @@
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import { Inputs } from "./login.container";
+import { SubmitHandler, useForm } from "react-hook-form";
+import useAuth from "../../../commons/hooks/useAuth";
 
 const LoginUI = () => {
+  const [login, setLogin] = useState(false);
+  const { signIn, signUp } = useAuth();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
+    if (login) {
+      await signIn(email, password);
+    } else {
+      await signUp(email, password);
+    }
+  };
+
   return (
     <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
       <Head>
@@ -23,6 +42,7 @@ const LoginUI = () => {
       />
 
       <form
+        onSubmit={handleSubmit(onSubmit)}
         className="relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 
       md:max-w-md md:px-14"
       >
@@ -33,23 +53,42 @@ const LoginUI = () => {
               type="email"
               placeholder="이메일을 입력해주세요"
               className="input"
+              {...register("email", { required: true })}
             />
+            {errors.email && (
+              <span className="p-1 text-[13px] font-light text-orange-500">
+                이메일을 입력해주세요
+              </span>
+            )}
           </label>
           <label className="inline-block w-full">
             <input
               type="password"
               placeholder="비밀번호를 입력하세요"
               className="input"
+              {...register("password", { required: true })}
             />
+            {errors.password && (
+              <span className="p-1 text-[13px] font-light text-orange-500">
+                비밀번호를 입력해주세요
+              </span>
+            )}
           </label>
         </div>
-        <button className="w-full rounded bg-[#e50914] py-3 font-semibold">
+        <button
+          onClick={() => setLogin(true)}
+          className="w-full rounded bg-[#e50914] py-3 font-semibold"
+        >
           Sign In
         </button>
 
         <div className="text-[gray]">
           <h2>계정을 만드시겠습니까?</h2>
-          <button type="submit" className="text-white hover:underline ">
+          <button
+            onClick={() => setLogin(false)}
+            type="submit"
+            className="text-white hover:underline "
+          >
             회원가입하기
           </button>
         </div>
