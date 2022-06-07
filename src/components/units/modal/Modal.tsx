@@ -71,18 +71,6 @@ function Modal() {
             muted={muted}
             light={false}
             loop={true}
-            config={{
-              file: {
-                tracks: [
-                  {
-                    kind: "subtitles",
-                    src: "subs/subtitles.ko.vtt",
-                    srcLang: "ko",
-                    default: true,
-                  },
-                ],
-              },
-            }}
           />
           <div className="absolute bottom-10 flex w-full items-center justify-between px-10 ">
             <div className="flex space-x-2">
