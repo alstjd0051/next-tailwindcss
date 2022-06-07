@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { modalState, movieState } from "../../../../commons/atoms/modalAtom";
 import { Movie } from "../../../../commons/types/typing";
 import BannerUI from "./Banner.presenter";
 
@@ -11,7 +13,6 @@ const Banner = ({ topRated }: Props) => {
   useEffect(() => {
     setMovie(topRated[Math.floor(Math.random() * topRated.length)]);
   }, [topRated]);
-  console.log(movie);
 
   return <BannerUI movie={movie} />;
 };

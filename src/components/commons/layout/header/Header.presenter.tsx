@@ -1,7 +1,10 @@
 import { BellIcon, SearchIcon } from "@heroicons/react/solid";
 import Link from "next/link";
+import useAuth from "../../../../commons/hooks/useAuth";
 
 const HeaderUI = ({ isScrolled = false }) => {
+  const { logout } = useAuth();
+
   return (
     <header className={`${isScrolled && "bg-red-500"}`}>
       <div className="flex items-center space-x-2 md:space-x-10 ">
@@ -25,13 +28,14 @@ const HeaderUI = ({ isScrolled = false }) => {
         <SearchIcon className=" hidden sm:inline h-6 w-6" />
         <p className="hidden lg:inline">Kids</p>
         <BellIcon className="h-6 w-6" />
-        <Link href="/account">
-          <img
-            src="https://rb.gy/g1pwyx"
-            alt=""
-            className="cursor-pointer rounded"
-          />
-        </Link>
+        {/* <Link href="/account"> */}
+        <img
+          onClick={logout}
+          src="https://rb.gy/g1pwyx"
+          alt=""
+          className="cursor-pointer rounded"
+        />
+        {/* </Link> */}
       </div>
     </header>
   );
