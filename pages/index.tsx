@@ -10,7 +10,7 @@ import { useRecoilValue } from "recoil";
 import { useState } from "react";
 import { modalState } from "../src/commons/atoms/modalAtom";
 import Modal from "../src/components/units/modal/Modal";
-import Plans from "../src/components/units/plan/plans";
+import Plans from "../src/components/units/plan/Plans";
 
 interface Props {
   netflixOriginals: Movie[];
